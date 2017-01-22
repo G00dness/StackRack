@@ -12,27 +12,30 @@ namespace StackRanking
         {
             Console.WriteLine("***********************************************");
             Console.WriteLine("Welcome to the Stack Rank Tool");
-            Console.WriteLine("To begin, let's start by creating your Player Account");
-            Console.WriteLine("What do you want to name your Pool Player Name?");
-            var poolPlayerName = Console.ReadLine();
-            Console.WriteLine("What's your email address?");
-            var emailAddress = Console.ReadLine();
-            var PoolPlayer = new PoolPlayerAccount();
-            PoolPlayer.PoolPlayerName = poolPlayerName;
-            PoolPlayer.EmailAddress = emailAddress;
-            Console.WriteLine($"Welcome, {PoolPlayer.PoolPlayerName}");
-            Console.WriteLine("Let's start building your rank predictions");
-            Console.WriteLine("Select which team you want to rank one:");
-            var predictedTeamOne = Console.ReadLine();
-            PoolPlayer.PredictedTeamOne = Team.Anaheim_Ducks;
-            Console.WriteLine("Select next team you want to rank two:");
-            var predictedTeamTwo = Console.ReadLine();
-            PoolPlayer.PredictedTeamTwo = Team.Atlanta_Thrashers;
-            Console.WriteLine("Select next team you want to rank three:");
-            var predictedTeamThree = Console.ReadLine();
-            PoolPlayer.PredictedTeamThree = Team.Boston_Bruins;
-            Console.WriteLine($"Just to recap. You've ranked 1: {PoolPlayer.PredictedTeamOne} 2: {PoolPlayer.PredictedTeamTwo} 3: {PoolPlayer.PredictedTeamThree} ");
+            Console.WriteLine("What would you like to do?");
+            Console.WriteLine("1. Create a new pool player");
+            Console.WriteLine("2. Check pool scores");
+            var select = Console.ReadLine();
+            switch (select)
+            {
+                case "1":
+                    Console.WriteLine("To begin, let's start by creating your Player Account");
+                    Console.WriteLine("What do you want to name your Pool Player Name?");
+                    var poolPlayerName = Console.ReadLine();
+                    Console.WriteLine("What's your email address?");
+                    var emailAddress = Console.ReadLine();
+                    var PoolPlayer = new PoolPlayerAccount();
+                    PoolPlayer.PoolPlayerName = poolPlayerName;
+                    PoolPlayer.EmailAddress = emailAddress;
+                    Console.WriteLine("Let's start building your rank predictions");
+                    Console.WriteLine("What's your predicted rank of the New Jersey Devils");
+                    var PredictedDevils = Console.ReadLine();
+                    Console.WriteLine($"Your Devil Differential {PoolPlayer.DiffDevils}");
+                    break;
 
+                default:
+                    break;
+            }
         }
     }
 }
