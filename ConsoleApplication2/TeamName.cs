@@ -6,39 +6,7 @@ using System.Threading.Tasks;
 
 namespace StackRanking   
 {
-public enum Teams
-    {
-        New_Jersey_Devils,
-        New_York_Islanders,
-        New_York_Rangers,
-        Philadelphia_Flyers,
-        Pittsburgh_Penguins,
-        Boston_Bruins,
-        Buffalo_Sabres,
-        Montreal_Canadiens,
-        Ottawa_Senators,
-        Toronto_Maple_Leafs,
-        Atlanta_Thrashers,
-        Carolina_Hurricanes,
-        Florida_Panthers,
-        Tampa_Bay_Lightning,
-        Washington_Capitals,
-        Chicago_Blackhawks,
-        Columbus_Blue_Jackets,
-        Detroit_Red_Wings,
-        Nashville_Predators,
-        St_Louis_Blues,
-        Calgary_Flames,
-        Colorado_Avalanche,
-        Edmonton_Oilers,
-        Minnesota_Wild,
-        Vancouver_Canucks,
-        Anaheim_Ducks,
-        Dallas_Stars,
-        Los_Angeles_Kings,
-        Phoenix_Coyotes,
-        San_Jose_Sharks
-    }
+
     public class PoolPlayerAccount
     {
         #region Statics
@@ -78,7 +46,7 @@ public enum Teams
         public string PoolPlayerName { get; set; }
         public string EmailAddress { get; set; }
         public int PredictedDevils { get; set; }
-        public int DiffDevils { get; private set}
+        public int DiffDevils { get; private set; }
         public int PredictedIslanders { get; set; }
         public int PredictedRangers { get; set; }
         public int PredictedFlyers { get; set; }
@@ -112,19 +80,7 @@ public enum Teams
 
         #endregion
 
-        #region Method
-        public int DiffDevils(int amount)
-        {
-            if (PredictedDevils < ActualDevils)
-            {
-                DiffDevils = (PredictedDevils - ActualDevils);
-            }
-            return DiffDevils = (ActualDevils - PredictedDevils);
-        }
-
-
-
-        #endregion
+   
 
     }
 }
