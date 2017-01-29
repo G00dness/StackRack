@@ -118,6 +118,8 @@ namespace StackRanking
                     var myPoolAccount = PoolManager.CreateAccount(poolPlayerName, emailAddress, PredictedDevils, PredictedIslanders, PredictedRangers, PredictedFlyers, PredictedPenguins, PredictedBruins, PredictedSabres, PredictedCanadiens, PredictedSenators, PredictedLeafs, PredictedThrashers, PredictedHurricanes, PredictedPanthers, PredictedLightning, PredictedCapitals, PredictedBlackhawks, PredictedBJackets, PredictedRWings, PredictedPredators, PredictedBlues, PredictedFlames, PredictedAvalanche, PredictedOilers, PredictedWild, PredictedCanucks, PredictedDucks, PredictedStars, PredictedKings, PredictedCoyotes, PredictedSharks);
                     Console.WriteLine($"Thank you for your rankings, {myPoolAccount.PoolPlayerName}");
                     break;
+                case "2":
+                    return;
                 default:
                     break;
             }
