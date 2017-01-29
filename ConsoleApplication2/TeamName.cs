@@ -10,43 +10,42 @@ namespace StackRanking
     public class PoolPlayerAccount
     {
         #region Statics
-        private static int ActualDevils = 1;
-        private static int ActualIslanders = 2;
-        private static int ActualRangers = 3;
-        private static int ActualFlyers = 4;
-        private static int ActualPenguins = 5;
-        private static int ActualBruins = 6;
-        private static int ActualSabres = 7;
-        private static int ActualCanadiens = 8;
-        private static int ActualSenators = 9;
-        private static int ActualLeafs = 10;
-        private static int ActualThrashers = 11;
-        private static int ActualHurricanes = 12;
-        private static int ActualPanthers = 13;
-        private static int ActualLightning = 14;
-        private static int ActualCapitals = 15;
-        private static int ActualBlackhawks = 16;
-        private static int ActualBJackets = 17;
-        private static int ActualRWings = 18;
-        private static int ActualPredators = 19;
-        private static int ActualBlues = 20;
-        private static int ActualFlames = 21;
-        private static int ActualAvalanche = 22;
-        private static int ActualOilers = 23;
-        private static int ActualWild = 24;
-        private static int ActualCanucks = 25;
-        private static int ActualDucks = 26;
-        private static int ActualStars = 27;
-        private static int ActualKings = 28;
-        private static int ActualCoyotes = 29;
-        private static int ActualSharks = 30;
+        ///private static int ActualDevils = 1;
+        ///private static int ActualIslanders = 2;
+        ///private static int ActualRangers = 3;
+        ///private static int ActualFlyers = 4;
+        ///private static int ActualPenguins = 5;
+        ///private static int ActualBruins = 6;
+        ///private static int ActualSabres = 7;
+        ///private static int ActualCanadiens = 8;
+        ///private static int ActualSenators = 9;
+        ///private static int ActualLeafs = 10;
+        ///private static int ActualThrashers = 11;
+        ///private static int ActualHurricanes = 12;
+        ///private static int ActualPanthers = 13;
+        ///private static int ActualLightning = 14;
+        ///private static int ActualCapitals = 15;
+        ///private static int ActualBlackhawks = 16;
+        ///private static int ActualBJackets = 17;
+        ///private static int ActualRWings = 18;
+        ///private static int ActualPredators = 19;
+        ///private static int ActualBlues = 20;
+        ///private static int ActualFlames = 21;
+        ///private static int ActualAvalanche = 22;
+        ///private static int ActualOilers = 23;
+        ///private static int ActualWild = 24;
+        ///private static int ActualCanucks = 25;
+        ///private static int ActualDucks = 26;
+        ///private static int ActualStars = 27;
+        ///private static int ActualKings = 28;
+        ///private static int ActualCoyotes = 29;
+        ///private static int ActualSharks = 30;
         #endregion
 
         #region Properties
         public string PoolPlayerName { get; set; }
         public string EmailAddress { get; set; }
         public int PredictedDevils { get; set; }
-        public int DiffDevils { get; private set; }
         public int PredictedIslanders { get; set; }
         public int PredictedRangers { get; set; }
         public int PredictedFlyers { get; set; }
