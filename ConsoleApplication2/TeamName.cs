@@ -10,10 +10,10 @@ namespace StackRanking
     public class PoolPlayerAccount
     {
         #region Statics
-        ///private static int ActualDevils = 1;
-        ///private static int ActualIslanders = 2;
-        ///private static int ActualRangers = 3;
-        ///private static int ActualFlyers = 4;
+        private static int ActualDevils = 1;
+        private static int ActualIslanders = 2;
+        private static int ActualRangers = 3;
+        private static int ActualFlyers = 4;
         ///private static int ActualPenguins = 5;
         ///private static int ActualBruins = 6;
         ///private static int ActualSabres = 7;
@@ -49,37 +49,90 @@ namespace StackRanking
         public int PredictedIslanders { get; set; }
         public int PredictedRangers { get; set; }
         public int PredictedFlyers { get; set; }
-        public int PredictedPenguins { get; set; }
-        public int PredictedBruins { get; set; }
-        public int PredictedSabres { get; set; }
-        public int PredictedCanadiens { get; set; }
-        public int PredictedSenators { get; set; }
-        public int PredictedLeafs { get; set; }
-        public int PredictedThrashers { get; set; }
-        public int PredictedHurricanes { get; set; }
-        public int PredictedPanthers { get; set; }
-        public int PredictedLightning { get; set; }
-        public int PredictedCapitals { get; set; }
-        public int PredictedBlackhawks { get; set; }
-        public int PredictedBJackets { get; set; }
-        public int PredictedRWings { get; set; }
-        public int PredictedPredators { get; set; }
-        public int PredictedBlues { get; set; }
-        public int PredictedFlames { get; set; }
-        public int PredictedAvalanche { get; set; }
-        public int PredictedOilers { get; set; }
-        public int PredictedWild { get; set; }
-        public int PredictedCanucks { get; set; }
-        public int PredictedDucks { get; set; }
-        public int PredictedStars { get; set; }
-        public int PredictedKings { get; set; }
-        public int PredictedCoyotes { get; set; }
-        public int PredictedSharks { get; set; }
-        public int ScoreDifferential { get; set; }
-
+        ///public int PredictedPenguins { get; set; }
+        ///public int PredictedBruins { get; set; }
+        ///public int PredictedSabres { get; set; }
+        ///public int PredictedCanadiens { get; set; }
+        ///public int PredictedSenators { get; set; }
+        ///public int PredictedLeafs { get; set; }
+        /// public int PredictedThrashers { get; set; }
+        ///public int PredictedHurricanes { get; set; }
+        ///public int PredictedPanthers { get; set; }
+        ///public int PredictedLightning { get; set; }
+        ///public int PredictedCapitals { get; set; }
+        ///public int PredictedBlackhawks { get; set; }
+        ///public int PredictedBJackets { get; set; }
+        ///public int PredictedRWings { get; set; }
+        ///public int PredictedPredators { get; set; }
+        ///public int PredictedBlues { get; set; }
+        ///public int PredictedFlames { get; set; }
+        ///public int PredictedAvalanche { get; set; }
+        ///public int PredictedOilers { get; set; }
+        ///public int PredictedWild { get; set; }
+        ///public int PredictedCanucks { get; set; }
+        ///public int PredictedDucks { get; set; }
+        ///public int PredictedStars { get; set; }
+        ///public int PredictedKings { get; set; }
+        ///public int PredictedCoyotes { get; set; }
+        ///public int PredictedSharks { get; set; }
+        private int calcDevils;
+        public int CalcDevils {
+            get
+            {
+                if (PredictedDevils < ActualDevils)
+                {calcDevils = ActualDevils - PredictedDevils;}
+                else{calcDevils = PredictedDevils - ActualDevils;}
+                return calcDevils;
+            }
+        }
+        private int calcIslanders;
+        public int CalcIslanders
+        {
+            get
+            {
+                if (PredictedIslanders < ActualIslanders)
+                { calcIslanders = ActualIslanders - PredictedIslanders; }
+                else { calcIslanders = PredictedIslanders - ActualIslanders; }
+                return calcIslanders;
+            }
+        }
+        private int calcRangers;
+        public int CalcRangers
+        {
+            get
+            {
+                if (PredictedRangers < ActualRangers)
+                { calcRangers = ActualRangers - PredictedRangers; }
+                else { calcRangers = PredictedRangers - ActualRangers; }
+                return calcRangers;
+            }
+        }
+        private int calcFlyers;
+        public int CalcFlyers
+        {
+            get
+            {
+                if (PredictedFlyers < ActualFlyers)
+                { calcFlyers = ActualFlyers - PredictedFlyers; }
+                else { calcFlyers = PredictedFlyers - ActualFlyers; }
+                return calcFlyers;
+            }
+        }
+        private int score;
+        public int ScoreDifferential
+        {
+            get
+            {
+                score = CalcDevils + CalcIslanders + CalcRangers + CalcFlyers;
+                return score;
+            }
+        }
         #endregion
 
-   
+       
 
     }
+    #region Methods
+    
+    #endregion
 }

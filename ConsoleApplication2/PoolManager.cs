@@ -43,7 +43,12 @@ namespace StackRanking
             San_Jose_Sharks
         }
         #endregion
-        public static PoolPlayerAccount CreateAccount(string poolPlayerName, string emailAddress, int predictedDevils, int predictedIslanders, int predictedRangers, int predictedFlyers, int predictedPenguins, int predictedBruins, int predictedSabres, int predictedCanadiens, int predictedSenators, int predictedLeafs, int predictedThrashers, int predictedHurricanes, int predictedPanthers, int predictedLightning, int predictedCapitals, int predictedBlackhawks, int predictedBJackets, int predictedRWings, int predictedPredators, int predictedBlues, int predictedFlames, int predictedAvalanche, int predictedOilers, int predictedWild, int predictedCanucks, int predictedDucks, int predictedStars, int predictedKings, int predictedCoyotes, int predictedSharks)
+
+        #region Fields
+        private static List<PoolPlayerAccount> poolplayerAccounts = new List<PoolPlayerAccount>();
+        #endregion
+
+        public static PoolPlayerAccount CreateAccount(string poolPlayerName, string emailAddress, int predictedDevils, int predictedIslanders, int predictedRangers, int predictedFlyers)
         {
             var poolplayerAccount = new PoolPlayerAccount();
             poolplayerAccount.PoolPlayerName = poolPlayerName;
@@ -52,34 +57,41 @@ namespace StackRanking
             poolplayerAccount.PredictedIslanders = predictedIslanders;
             poolplayerAccount.PredictedRangers = predictedRangers;
             poolplayerAccount.PredictedFlyers = predictedFlyers;
-            poolplayerAccount.PredictedPenguins = predictedPenguins;
-            poolplayerAccount.PredictedBruins = predictedBruins;
-            poolplayerAccount.PredictedSabres = predictedSabres;
-            poolplayerAccount.PredictedCanadiens = predictedCanadiens;
-            poolplayerAccount.PredictedSenators = predictedSenators;
-            poolplayerAccount.PredictedLeafs = predictedLeafs;
-            poolplayerAccount.PredictedThrashers = predictedThrashers;
-            poolplayerAccount.PredictedHurricanes = predictedHurricanes;
-            poolplayerAccount.PredictedPanthers = predictedPanthers;
-            poolplayerAccount.PredictedLightning = predictedLightning;
-            poolplayerAccount.PredictedCapitals = predictedCapitals;
-            poolplayerAccount.PredictedBlackhawks = predictedBlackhawks;
-            poolplayerAccount.PredictedBJackets = predictedBJackets;
-            poolplayerAccount.PredictedRWings = predictedRWings;
-            poolplayerAccount.PredictedPredators = predictedPredators;
-            poolplayerAccount.PredictedBlues = predictedBlues;
-            poolplayerAccount.PredictedFlames = predictedFlames;
-            poolplayerAccount.PredictedAvalanche = predictedAvalanche;
-            poolplayerAccount.PredictedOilers = predictedOilers;
-            poolplayerAccount.PredictedWild = predictedWild;
-            poolplayerAccount.PredictedCanucks = predictedCanucks;
-            poolplayerAccount.PredictedDucks = predictedDucks;
-            poolplayerAccount.PredictedStars = predictedStars;
-            poolplayerAccount.PredictedKings = predictedKings;
-            poolplayerAccount.PredictedCoyotes = predictedCoyotes;
-            poolplayerAccount.PredictedSharks = predictedSharks;
+            ///poolplayerAccount.PredictedPenguins = predictedPenguins;
+            ///poolplayerAccount.PredictedBruins = predictedBruins;
+            ///poolplayerAccount.PredictedSabres = predictedSabres;
+            ///poolplayerAccount.PredictedCanadiens = predictedCanadiens;
+            ///poolplayerAccount.PredictedSenators = predictedSenators;
+            ///poolplayerAccount.PredictedLeafs = predictedLeafs;
+            ///poolplayerAccount.PredictedThrashers = predictedThrashers;
+            /// poolplayerAccount.PredictedHurricanes = predictedHurricanes;
+            ///poolplayerAccount.PredictedPanthers = predictedPanthers;
+            ///poolplayerAccount.PredictedLightning = predictedLightning;
+            ///poolplayerAccount.PredictedCapitals = predictedCapitals;
+            ///poolplayerAccount.PredictedBlackhawks = predictedBlackhawks;
+            ///poolplayerAccount.PredictedBJackets = predictedBJackets;
+            ///poolplayerAccount.PredictedRWings = predictedRWings;
+            ///poolplayerAccount.PredictedPredators = predictedPredators;
+            ///poolplayerAccount.PredictedBlues = predictedBlues;
+            ///poolplayerAccount.PredictedFlames = predictedFlames;
+            ///poolplayerAccount.PredictedAvalanche = predictedAvalanche;
+            ///poolplayerAccount.PredictedOilers = predictedOilers;
+            ///poolplayerAccount.PredictedWild = predictedWild;
+            ///poolplayerAccount.PredictedCanucks = predictedCanucks;
+            ///poolplayerAccount.PredictedDucks = predictedDucks;
+            ///poolplayerAccount.PredictedStars = predictedStars;
+            ///poolplayerAccount.PredictedKings = predictedKings;
+            ///poolplayerAccount.PredictedCoyotes = predictedCoyotes;
+            ///poolplayerAccount.PredictedSharks = predictedSharks;
+            poolplayerAccounts.Add(poolplayerAccount);
             return poolplayerAccount;
         }
-        public static 
+        public static void PrintAllAccounts()
+        {
+            foreach (var account in poolplayerAccounts)
+            {
+                Console.WriteLine($"Player Name: {account.PoolPlayerName}, Score: {account.ScoreDifferential}");
+            }
+        } 
     }
 }

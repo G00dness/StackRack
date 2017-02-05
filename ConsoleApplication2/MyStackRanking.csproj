@@ -46,6 +46,7 @@
     <Compile Include="PoolManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scoring.cs" />
     <Compile Include="TeamName.cs" />
   </ItemGroup>
   <ItemGroup>
