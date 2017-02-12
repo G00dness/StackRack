@@ -127,6 +127,7 @@ namespace StackRanking
                 return score;
             }
         }
+        
         #endregion
 
        

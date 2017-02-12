@@ -126,9 +126,12 @@ namespace StackRanking
                     case "2":
                         PoolManager.PrintAllAccounts();
                         break;
-                   ///case "3":
-                        ///Console.WriteLine($"Devils {myPoolAccount.PredictedDevils}, Islanders {myPoolAccount.PredictedIslanders}, Rangers {myPoolAccount.PredictedRangers}, Flyers {myPoolAccount.PredictedFlyers} ");
-                        ///break;
+                    ///case "3":
+                    ///Console.WriteLine($"Devils {myPoolAccount.PredictedDevils}, Islanders {myPoolAccount.PredictedIslanders}, Rangers {myPoolAccount.PredictedRangers}, Flyers {myPoolAccount.PredictedFlyers} ");
+                    ///break;
+                    case "4":
+                        Console.WriteLine("Thank you. Have a nice day.");
+                        return
                     default:
                         break;
                 }

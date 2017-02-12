@@ -50,6 +50,7 @@ namespace StackRanking
 
         public static PoolPlayerAccount CreateAccount(string poolPlayerName, string emailAddress, int predictedDevils, int predictedIslanders, int predictedRangers, int predictedFlyers)
         {
+            var db = new PoolManagerModel();
             var poolplayerAccount = new PoolPlayerAccount();
             poolplayerAccount.PoolPlayerName = poolPlayerName;
             poolplayerAccount.EmailAddress = emailAddress;
@@ -83,7 +84,8 @@ namespace StackRanking
             ///poolplayerAccount.PredictedKings = predictedKings;
             ///poolplayerAccount.PredictedCoyotes = predictedCoyotes;
             ///poolplayerAccount.PredictedSharks = predictedSharks;
-            poolplayerAccounts.Add(poolplayerAccount);
+            db.PoolPlayerAccounts.Add(poolplayerAccount);
+            db.SaveChanges();
             return poolplayerAccount;
         }
         public static void PrintAllAccounts()
