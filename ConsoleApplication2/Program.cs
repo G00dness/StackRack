@@ -12,14 +12,19 @@ namespace StackRanking
         {
             Console.WriteLine("***********************************************");
             Console.WriteLine("Welcome to the Stack Rank Tool");
-            var choice = "-1";
+
+            Console.WriteLine("Please provide your email address:");
+            var email = Console.ReadLine();
+
+                var choice = "-1";
             while (choice != "0")
             {
                 Console.WriteLine("What would you like to do?");
                 Console.WriteLine("1. Create a new pool player");
                 Console.WriteLine("2. Check pool scores");
-                ///Console.WriteLine("3. Check a player's ranking list");
-                Console.WriteLine("4. Exit");
+                Console.WriteLine("3. Check my ranking list");
+                ///Console.WriteLine("4. Check all player's ranking list")
+                Console.WriteLine("5. Exit");
                 var select = Console.ReadLine();
                 switch (select)
                 {
@@ -27,8 +32,6 @@ namespace StackRanking
                         Console.WriteLine("To begin, let's start by creating your Player Account");
                         Console.WriteLine("What do you want to name your Pool Player Name?");
                         var poolPlayerName = Console.ReadLine();
-                        Console.WriteLine("What's your email address?");
-                        var emailAddress = Console.ReadLine();
                         Console.WriteLine("Let's start building your rank predictions");
                         Console.WriteLine("What's your predicted rank of the New Jersey Devils?");
                         var PredictedDevilsStr = Console.ReadLine();
@@ -120,18 +123,19 @@ namespace StackRanking
                         ///Console.WriteLine("What's your predicted rank of the San Jose Sharks?");
                         ///var PredictedSharksStr = Console.ReadLine();
                         ///var PredictedSharks = Convert.ToInt32(PredictedSharksStr);
-                        var myPoolAccount = PoolManager.CreateAccount(poolPlayerName, emailAddress, PredictedDevils, PredictedIslanders, PredictedRangers, PredictedFlyers);
+                        var myPoolAccount = PoolManager.CreateAccount(poolPlayerName, email, PredictedDevils, PredictedIslanders, PredictedRangers, PredictedFlyers);
                         Console.WriteLine($"Thank you for your rankings, {myPoolAccount.PoolPlayerName}. Your score based on current team rankings is {myPoolAccount.ScoreDifferential}");
                         break;
                     case "2":
-                        PoolManager.PrintAllAccounts();
+                        PoolManager.PrintAllScores();
                         break;
-                    ///case "3":
-                    ///Console.WriteLine($"Devils {myPoolAccount.PredictedDevils}, Islanders {myPoolAccount.PredictedIslanders}, Rangers {myPoolAccount.PredictedRangers}, Flyers {myPoolAccount.PredictedFlyers} ");
-                    ///break;
-                    case "4":
+                    case "3":
+                        PoolManager.PrintPlayerAccount(email);
+                        break;
+
+                    case "5":
                         Console.WriteLine("Thank you. Have a nice day.");
-                        return
+                        return;
                     default:
                         break;
                 }

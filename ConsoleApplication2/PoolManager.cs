@@ -44,56 +44,70 @@ namespace StackRanking
         }
         #endregion
 
-        #region Fields
-        private static List<PoolPlayerAccount> poolplayerAccounts = new List<PoolPlayerAccount>();
-        #endregion
+        
 
         public static PoolPlayerAccount CreateAccount(string poolPlayerName, string emailAddress, int predictedDevils, int predictedIslanders, int predictedRangers, int predictedFlyers)
         {
-            var db = new PoolManagerModel();
-            var poolplayerAccount = new PoolPlayerAccount();
-            poolplayerAccount.PoolPlayerName = poolPlayerName;
-            poolplayerAccount.EmailAddress = emailAddress;
-            poolplayerAccount.PredictedDevils = predictedDevils;
-            poolplayerAccount.PredictedIslanders = predictedIslanders;
-            poolplayerAccount.PredictedRangers = predictedRangers;
-            poolplayerAccount.PredictedFlyers = predictedFlyers;
-            ///poolplayerAccount.PredictedPenguins = predictedPenguins;
-            ///poolplayerAccount.PredictedBruins = predictedBruins;
-            ///poolplayerAccount.PredictedSabres = predictedSabres;
-            ///poolplayerAccount.PredictedCanadiens = predictedCanadiens;
-            ///poolplayerAccount.PredictedSenators = predictedSenators;
-            ///poolplayerAccount.PredictedLeafs = predictedLeafs;
-            ///poolplayerAccount.PredictedThrashers = predictedThrashers;
-            /// poolplayerAccount.PredictedHurricanes = predictedHurricanes;
-            ///poolplayerAccount.PredictedPanthers = predictedPanthers;
-            ///poolplayerAccount.PredictedLightning = predictedLightning;
-            ///poolplayerAccount.PredictedCapitals = predictedCapitals;
-            ///poolplayerAccount.PredictedBlackhawks = predictedBlackhawks;
-            ///poolplayerAccount.PredictedBJackets = predictedBJackets;
-            ///poolplayerAccount.PredictedRWings = predictedRWings;
-            ///poolplayerAccount.PredictedPredators = predictedPredators;
-            ///poolplayerAccount.PredictedBlues = predictedBlues;
-            ///poolplayerAccount.PredictedFlames = predictedFlames;
-            ///poolplayerAccount.PredictedAvalanche = predictedAvalanche;
-            ///poolplayerAccount.PredictedOilers = predictedOilers;
-            ///poolplayerAccount.PredictedWild = predictedWild;
-            ///poolplayerAccount.PredictedCanucks = predictedCanucks;
-            ///poolplayerAccount.PredictedDucks = predictedDucks;
-            ///poolplayerAccount.PredictedStars = predictedStars;
-            ///poolplayerAccount.PredictedKings = predictedKings;
-            ///poolplayerAccount.PredictedCoyotes = predictedCoyotes;
-            ///poolplayerAccount.PredictedSharks = predictedSharks;
-            db.PoolPlayerAccounts.Add(poolplayerAccount);
-            db.SaveChanges();
-            return poolplayerAccount;
-        }
-        public static void PrintAllAccounts()
-        {
-            foreach (var account in poolplayerAccounts)
+            using (var db = new PoolManagerModel())
             {
-                Console.WriteLine($"Player Name: {account.PoolPlayerName}, Score: {account.ScoreDifferential}");
+                var poolplayerAccount = new PoolPlayerAccount();
+                poolplayerAccount.PoolPlayerName = poolPlayerName;
+                poolplayerAccount.EmailAddress = emailAddress;
+                poolplayerAccount.PredictedDevils = predictedDevils;
+                poolplayerAccount.PredictedIslanders = predictedIslanders;
+                poolplayerAccount.PredictedRangers = predictedRangers;
+                poolplayerAccount.PredictedFlyers = predictedFlyers;
+                ///poolplayerAccount.PredictedPenguins = predictedPenguins;
+                ///poolplayerAccount.PredictedBruins = predictedBruins;
+                ///poolplayerAccount.PredictedSabres = predictedSabres;
+                ///poolplayerAccount.PredictedCanadiens = predictedCanadiens;
+                ///poolplayerAccount.PredictedSenators = predictedSenators;
+                ///poolplayerAccount.PredictedLeafs = predictedLeafs;
+                ///poolplayerAccount.PredictedThrashers = predictedThrashers;
+                /// poolplayerAccount.PredictedHurricanes = predictedHurricanes;
+                ///poolplayerAccount.PredictedPanthers = predictedPanthers;
+                ///poolplayerAccount.PredictedLightning = predictedLightning;
+                ///poolplayerAccount.PredictedCapitals = predictedCapitals;
+                ///poolplayerAccount.PredictedBlackhawks = predictedBlackhawks;
+                ///poolplayerAccount.PredictedBJackets = predictedBJackets;
+                ///poolplayerAccount.PredictedRWings = predictedRWings;
+                ///poolplayerAccount.PredictedPredators = predictedPredators;
+                ///poolplayerAccount.PredictedBlues = predictedBlues;
+                ///poolplayerAccount.PredictedFlames = predictedFlames;
+                ///poolplayerAccount.PredictedAvalanche = predictedAvalanche;
+                ///poolplayerAccount.PredictedOilers = predictedOilers;
+                ///poolplayerAccount.PredictedWild = predictedWild;
+                ///poolplayerAccount.PredictedCanucks = predictedCanucks;
+                ///poolplayerAccount.PredictedDucks = predictedDucks;
+                ///poolplayerAccount.PredictedStars = predictedStars;
+                ///poolplayerAccount.PredictedKings = predictedKings;
+                ///poolplayerAccount.PredictedCoyotes = predictedCoyotes;
+                ///poolplayerAccount.PredictedSharks = predictedSharks;
+                db.PoolPlayerAccounts.Add(poolplayerAccount);
+                db.SaveChanges();
+                return poolplayerAccount;
             }
+        }
+        public static void PrintAllScores()
+        {
+            using (var db = new PoolManagerModel())
+            {
+                foreach (var account in db.PoolPlayerAccounts)
+                {
+                    Console.WriteLine($"Player Name: {account.PoolPlayerName}, Score: {account.ScoreDifferential}");
+                }
+            }
+                
         } 
+        public static void PrintPlayerAccount(string emailAddress)
+        {
+            using (var db = new PoolManagerModel())
+            {
+                foreach(var account in db.PoolPlayerAccounts.Where(a => a.EmailAddress == emailAddress))
+                {
+                    Console.WriteLine($"Player Name: {account.PoolPlayerName}, Devils: {account.PredictedDevils}, Islanders: {account.PredictedIslanders}, Rangers: {account.PredictedRangers}, Flyers: {account.PredictedFlyers},");
+                }
+            }
+        }
     }
 }

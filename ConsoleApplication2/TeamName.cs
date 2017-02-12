@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,6 +44,7 @@ namespace StackRanking
         #endregion
 
         #region Properties
+            [Key]
         public string PoolPlayerName { get; set; }
         public string EmailAddress { get; set; }
         public int PredictedDevils { get; set; }
